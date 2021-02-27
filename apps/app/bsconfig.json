@@ -1,0 +1,31 @@
+{
+  "$schema": "https://raw.githubusercontent.com/rescript-lang/rescript-compiler/master/docs/docson/build-schema.json",
+  "name": "@apps/nextjs-scroll-animation",
+  "namespace": true,
+  "reason": { "react-jsx": 3 },
+  "refmt": 3,
+  "bs-dependencies": [
+    "@rescript/react",
+    "bs-css",
+    "bs-css-emotion",
+    "bs-webapi",
+    "@packages/react-modals",
+    "@packages/rescript-bindings"
+  ],
+  "ppx-flags": [],
+  "sources": [{ "dir": "src", "subdirs": true }],
+  "package-specs": {
+    "module": "es6",
+    "in-source": false
+  },
+  "suffix": ".js",
+  "warnings": {
+    "error": "+101+8"
+  },
+  "bsc-flags": ["-bs-super-errors"],
+  "gentypeconfig": {
+    "language": "untyped",
+    "shims": [],
+    "module": "es6"
+  }
+}

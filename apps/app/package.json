@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "name": "@apps/nextjs-scroll-animation",
+  "version": "0.0.0",
+  "author": "Rui Monteiro <figo.monteiro@gmail.com>",
+  "license": "Apache License 2.0",
+  "dependencies": {
+    "@emotion/css": "^11.1.3",
+    "@emotion/react": "^11.1.5",
+    "@emotion/server": "^11.0.0",
+    "@packages/react-modals": "*",
+    "@packages/rescript-bindings": "*",
+    "@rescript/react": "^0.10.1",
+    "bs-css-emotion": "^2.4.0",
+    "bs-webapi": "^0.19.1",
+    "next": "^10.0.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-transition-group": "^4.4.1",
+    "request": "^2.88.0"
+  },
+  "scripts": {
+    "dev": "next ./lib/es6/src",
+    "debug": "NODE_OPTIONS='--inspect' next ./lib/es6/src",
+    "build": "bsb -clean-world -make-world && next build ./lib/es6/src",
+    "export": "next export ./lib/es6/src",
+    "start": "next start -p $PORT ./lib/es6/src",
+    "res:build": "bsb -make-world",
+    "res:clean": "bsb -clean-world",
+    "res:start": "bsb -make-world -w"
+  }
+}

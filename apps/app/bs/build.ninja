@@ -1,0 +1,43 @@
+rescript = 1
+g_finger := /Users/figo/Work/rescript-monorepo-test/node_modules/reason-react/lib/ocaml/install.stamp
+cleaner = /Users/figo/Work/rescript-monorepo-test/node_modules/gentype/gentype.exe
+rule astj
+  command = /Users/figo/Work/rescript-monorepo-test/node_modules/bs-platform/darwin/bsc.exe  -warn-error +101+8 -bs-v 8.4.2 -bs-jsx 3 -bs-super-errors -bs-g -absname -bs-ast -o $out $i
+o src/App.ast : astj ../../src/App.res
+rule deps
+  command = /Users/figo/Work/rescript-monorepo-test/node_modules/bs-platform/darwin/bsb_helper.exe -hash ead30fd9e3310161131a84f6a3a21019 $in
+  restat = 1
+o src/App.d : deps src/App.ast src/App.iast
+o src/App.iast : astj ../../src/App.resi
+rule mi
+  command = /Users/figo/Work/rescript-monorepo-test/node_modules/bs-platform/darwin/bsc.exe -I src/components -I src/layouts -I src/bindings -I src -I /Users/figo/Work/rescript-monorepo-test/node_modules/reason-react/lib/ocaml -bs-super-errors -bs-g  -warn-error +101+8 -bs-gentype /Users/figo/Work/rescript-monorepo-test/node_modules/gentype/gentype.exe -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src/App.cmi : mi src/App.iast
+rule mj
+  command = /Users/figo/Work/rescript-monorepo-test/node_modules/bs-platform/darwin/bsc.exe -bs-read-cmi -I src/components -I src/layouts -I src/bindings -I src -I /Users/figo/Work/rescript-monorepo-test/node_modules/reason-react/lib/ocaml -bs-super-errors -bs-g  -warn-error +101+8 -bs-gentype /Users/figo/Work/rescript-monorepo-test/node_modules/gentype/gentype.exe -bs-package-name rescript-nextjs-template -bs-package-output es6:$in_d:.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src/App.cmj ../../src/App.js : mj src/App.ast src/App.cmi
+o src/Index.ast : astj ../../src/Index.res
+o src/Index.d : deps src/Index.ast src/Index.iast
+o src/Index.iast : astj ../../src/Index.resi
+o src/Index.cmi : mi src/Index.iast
+o src/Index.cmj ../../src/Index.js : mj src/Index.ast src/Index.cmi
+o src/Examples.ast : astj ../../src/Examples.res
+o src/Examples.d : deps src/Examples.ast src/Examples.iast
+o src/Examples.iast : astj ../../src/Examples.resi
+o src/Examples.cmi : mi src/Examples.iast
+o src/Examples.cmj ../../src/Examples.js : mj src/Examples.ast src/Examples.cmi
+o src/bindings/Next.ast : astj ../../src/bindings/Next.res
+o src/bindings/Next.d : deps src/bindings/Next.ast
+rule mij
+  command = /Users/figo/Work/rescript-monorepo-test/node_modules/bs-platform/darwin/bsc.exe -I src/components -I src/layouts -I src/bindings -I src -I /Users/figo/Work/rescript-monorepo-test/node_modules/reason-react/lib/ocaml -bs-super-errors -bs-g  -warn-error +101+8 -bs-gentype /Users/figo/Work/rescript-monorepo-test/node_modules/gentype/gentype.exe -bs-package-name rescript-nextjs-template -bs-package-output es6:$in_d:.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src/bindings/Next.cmj src/bindings/Next.cmi ../../src/bindings/Next.js : mij src/bindings/Next.ast
+o src/layouts/MainLayout.ast : astj ../../src/layouts/MainLayout.res
+o src/layouts/MainLayout.d : deps src/layouts/MainLayout.ast src/layouts/MainLayout.iast
+o src/layouts/MainLayout.iast : astj ../../src/layouts/MainLayout.resi
+o src/layouts/MainLayout.cmi : mi src/layouts/MainLayout.iast
+o src/layouts/MainLayout.cmj ../../src/layouts/MainLayout.js : mj src/layouts/MainLayout.ast src/layouts/MainLayout.cmi
