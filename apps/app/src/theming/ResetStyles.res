@@ -1,4 +1,4 @@
-open Emotion.React
+open PackagesRescriptBindings.Emotion.React
 
 @react.component
 let make = () => {

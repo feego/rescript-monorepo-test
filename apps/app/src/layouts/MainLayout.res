@@ -1,4 +1,4 @@
-module Link = Next.Link
+module Link = PackagesRescriptBindings.Next.Link
 
 module Navigation = {
   @react.component

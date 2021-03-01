@@ -1,3 +1,6 @@
+open PackagesReactModals
+open PackagesRescriptBindings
+
 type pageProps
 
 module PageComponent = {

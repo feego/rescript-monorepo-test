@@ -1,3 +1,5 @@
+open PackagesRescriptBindings
+
 let css = Emotion.css
 
 module Styles = {

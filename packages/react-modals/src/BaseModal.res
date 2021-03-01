@@ -1,4 +1,6 @@
 open React
+open PackagesRescriptBindings
+open PackagesReactTransitions
 let css = Emotion.css
 
 module Styles = {

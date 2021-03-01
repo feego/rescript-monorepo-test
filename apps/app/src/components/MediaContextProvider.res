@@ -1,4 +1,5 @@
 open React
+open PackagesRescriptBindings
 open DomAPI.Window
 
 module Breakpoint = {

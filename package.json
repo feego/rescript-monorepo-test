@@ -16,7 +16,7 @@
     "start": "yarn workspace @apps/nextjs-scroll-animation start",
     "res:build": "yarn workspace @apps/nextjs-scroll-animation res:build",
     "res:clean": "yarn workspace @apps/nextjs-scroll-animation res:clean",
-    "res:start": "yarn workspace @apps/nextjs-scroll-animation res:start"
+    "res:start": "sane 'yarn res:build' --glob='(apps|packages)/**/*.(res|resi)'"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^10.0.7",
@@ -24,6 +24,7 @@
     "bs-platform": "^9.0.1",
     "gentype": "^3.41.0",
     "next-compose-plugins": "^2.2.1",
-    "next-images": "^1.7.0"
+    "next-images": "^1.7.0",
+    "sane": "^4.1.0"
   }
 }

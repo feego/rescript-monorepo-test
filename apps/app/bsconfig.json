@@ -12,6 +12,10 @@
     "@packages/react-modals",
     "@packages/rescript-bindings"
   ],
+  "pinned-dependencies": [
+    "@packages/react-modals",
+    "@packages/rescript-bindings"
+  ],
   "ppx-flags": [],
   "sources": [{ "dir": "src", "subdirs": true }],
   "package-specs": {
