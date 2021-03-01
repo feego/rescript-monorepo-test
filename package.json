@@ -16,11 +16,12 @@
     "start": "yarn workspace @apps/nextjs-scroll-animation start",
     "res:build": "yarn workspace @apps/nextjs-scroll-animation res:build",
     "res:clean": "yarn workspace @apps/nextjs-scroll-animation res:clean",
-    "res:start": "sane 'yarn res:build' --glob='(apps|packages)/**/*.(res|resi)'"
+    "res:start": "yarn workspace @apps/nextjs-scroll-animation res:start",
+    "res:watch": "sane 'yarn res:build' --watchexec --glob='(apps|packages)/src/**/*.(res|resi)'",
+    "res:watchexec": "watchexec -w apps -w packages -e res,resi yarn res:build"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^10.0.7",
-    "@weco/next-plugin-transpile-modules": "^2.2.1",
     "bs-platform": "^9.0.1",
     "gentype": "^3.41.0",
     "next-compose-plugins": "^2.2.1",

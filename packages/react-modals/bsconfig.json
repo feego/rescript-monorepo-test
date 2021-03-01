@@ -13,6 +13,11 @@
     "@packages/react-utils",
     "@packages/rescript-bindings"
   ],
+  "pinned-dependencies": [
+    "@packages/react-transitions",
+    "@packages/react-utils",
+    "@packages/rescript-bindings"
+  ],
   "ppx-flags": [],
   "sources": [{ "dir": "src", "subdirs": true }],
   "package-specs": {

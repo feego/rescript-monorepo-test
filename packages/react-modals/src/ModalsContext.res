@@ -12,7 +12,7 @@ type modalsContext = {
   closeModal: modal => unit,
 }
 
-include ReactContext.Context({
+include PackagesReactUtils.ReactContext.Context({
   type context = modalsContext
   let defaultValue: context = {
     openedModals: [],

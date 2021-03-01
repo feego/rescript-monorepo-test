@@ -1,3 +1,13 @@
+open PackagesRescriptBindings
+
+module Styles = {
+  open Emotion.Css
+
+  let wrapper = style([
+    backgroundColor(#hex("000000")),
+  ])
+}
+
 module P = {
   @react.component
   let make = (~children) => <p className="mb-2"> children </p>
@@ -7,7 +17,7 @@ let default = () => {
   let breakpoint = MediaContextProvider.useMinWidthMediaQuery()
   Js.log(breakpoint)
 
-  <div>
+  <div className=?Styles.wrapper>
     <h1 className="text-3xl font-semibold"> {"What is this about?"->React.string} </h1>
     <P>
       {React.string(j` This is a simple template for a Next

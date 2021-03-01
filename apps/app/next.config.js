@@ -5,9 +5,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 const transpileModules = ["bs-platform", ...bsconfig["bs-dependencies"]];
-// const withTM = require("@weco/next-plugin-transpile-modules");
 const withTM = require("next-transpile-modules")(transpileModules);
-// const withTM = require("@module-federation/next-transpile-modules")(transpileModules, { debug: true });
 
 module.exports = withPlugins([
   [withBundleAnalyzer],
@@ -19,21 +17,5 @@ module.exports = withPlugins([
       },
     }),
   ],
-  // [
-  //   withTM({
-  //     transpileModules,
-  //   }),
-  // ],
-  [
-    withTM({
-      future: {
-        webpack5: false,
-      },
-    }),
-  ],
-  {
-    future: {
-      webpack5: false,
-    },
-  },
+  [withTM()],
 ]);

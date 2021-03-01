@@ -6,7 +6,6 @@ let css: array<option<string>> => option<string> = baseStyles => {
   let styles = Array.reduce(baseStyles, [], (styles, style) =>
     Option.mapWithDefault(style, styles, style => Array.concat(styles, [style]))
   )
-  Js.log("asdss")
   Array.size(styles) > 0 ? Some(Css.merge(List.fromArray(styles))) : None
 }
 

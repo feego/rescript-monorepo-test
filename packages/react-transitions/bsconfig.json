@@ -11,6 +11,9 @@
     "bs-webapi",
     "@packages/rescript-bindings"
   ],
+  "pinned-dependencies": [
+    "@packages/rescript-bindings"
+  ],
   "ppx-flags": [],
   "sources": [{ "dir": "src", "subdirs": true }],
   "package-specs": {
