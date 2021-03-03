@@ -43,7 +43,8 @@ let default = (props: props): React.element => {
       <GlobalClicksHandler className=?Styles.fullPageContainer>
         <ModalsController className=?Styles.fullPageContainer>
           <ScrollContainer
-            className=?Styles.fullPageContainer contentClassName=?Styles.fullPageContainer>
+            className=?Styles.fullPageContainer
+            contentClassName=?Styles.fullPageContainer>
             {createElement(component, pageProps)}
           </ScrollContainer>
         </ModalsController>

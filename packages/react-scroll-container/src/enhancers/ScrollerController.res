@@ -3,12 +3,25 @@ open React
 open Webapi
 open PackagesReactUtils
 open PackagesRescriptBindings
+open PackagesRescriptBindings.Emotion.Css
 
 let css = Emotion.css
 
+module Styles = {
+  let wrapper = style([
+    overflow(#auto),
+    /* Hints the browser to isolate the content in a new layer without creating a new stacking
+     context. 'will-change: transform;' of other transform based hints would create new contexts. */
+    unsafe("willChange", "opacity"),
+    unsafe("WebkitOverflowScrolling", "touch"),
+  ])
+  let content = style([overflow(#auto)])
+  let lockScroll = style([overflow(#hidden), unsafe("WebkitOverflowScrolling", "auto")])
+}
+
 let useScrollerController = (props: EnhancerHooks.props<'element>) => {
   let containerRef = Option.getWithDefault(props.innerRef, useRef(Js.Nullable.null))
-  let (arePointerEventsEnabled, setArePointerEventsEnabled) = useState(() => false)
+  let (arePointerEventsEnabled, setArePointerEventsEnabled) = useState(() => true)
 
   /**
    * Returns an object with the dimensions of the wrapped scroll container.
