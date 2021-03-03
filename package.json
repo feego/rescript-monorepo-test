@@ -18,7 +18,7 @@
     "res:clean": "yarn workspace @apps/nextjs-scroll-animation res:clean",
     "res:start": "yarn workspace @apps/nextjs-scroll-animation res:start",
     "res:watch": "sane 'yarn res:build' --watchexec --glob='(apps|packages)/src/**/*.(res|resi)'",
-    "res:watchexec": "watchexec -w apps -w packages -e res,resi yarn res:build"
+    "res:watchexec": "watchexec -w apps -w packages -i '**/lib/**/*' -e res,resi yarn res:build"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^10.0.7",

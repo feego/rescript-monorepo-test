@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/rescript-lang/rescript-compiler/master/docs/docson/build-schema.json",
-  "name": "@apps/nextjs-scroll-animation",
+  "name": "@packages/react-scroll-container",
   "namespace": true,
   "reason": { "react-jsx": 3 },
   "refmt": 3,
@@ -9,15 +9,11 @@
     "bs-css",
     "bs-css-emotion",
     "bs-webapi",
-    "@packages/react-modals",
-    "@packages/react-scroll-container",
     "@packages/react-utils",
     "@packages/rescript-bindings"
   ],
   "pinned-dependencies": [
-    "@packages/react-modals",
     "@packages/react-utils",
-    "@packages/react-scroll-container",
     "@packages/rescript-bindings"
   ],
   "ppx-flags": [],

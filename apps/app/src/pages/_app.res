@@ -1,5 +1,7 @@
+open React
 open PackagesReactModals
 open PackagesRescriptBindings
+open PackagesReactScrollContainer
 
 type pageProps
 
@@ -17,7 +19,7 @@ type props = {
 module Styles = {
   open Emotion.Css
 
-  let shrinkedContainer = style([
+  let fullPageContainer = style([
     display(#flex),
     flex3(~grow=1., ~shrink=0., ~basis=#auto),
     flexDirection(#column),
@@ -38,13 +40,12 @@ let default = (props: props): React.element => {
     </Next.Head>
     <GlobalStyles />
     <MediaContextProvider breakpoints={Theme.Breakpoints.asArray}>
-      <GlobalClicksHandler className=?Styles.shrinkedContainer>
-        <ModalsController className=?Styles.shrinkedContainer>
-          {
-            //       <ScrollContainer wrapperCSS=Styles.modalsController contentCSS=Styles.modalsController>
-            React.createElement(component, pageProps)
-            //       </ScrollContainer>
-          }
+      <GlobalClicksHandler className=?Styles.fullPageContainer>
+        <ModalsController className=?Styles.fullPageContainer>
+          <ScrollContainer
+            className=?Styles.fullPageContainer contentClassName=?Styles.fullPageContainer>
+            {createElement(component, pageProps)}
+          </ScrollContainer>
         </ModalsController>
       </GlobalClicksHandler>
     </MediaContextProvider>

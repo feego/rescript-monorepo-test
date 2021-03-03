@@ -1,6 +1,7 @@
 open React
 open PackagesRescriptBindings
 open PackagesReactTransitions
+open PackagesReactScrollContainer
 let css = Emotion.css
 
 module Styles = {
@@ -107,19 +108,15 @@ let make = (
       )
 
       <Wrapper className=?{css([Styles.wrapper, animationWrapperClassName, className])} onClose>
-        //  <ScrollContainer
-        //    className=?{
-        //      combineClassNames([
-        //        Some(Styles.scrollContainer),
-        //        Some(animationContentClassName),
-        //        scrollContainerClassName,
-        //      ])
-        //    }
-        //    contentClassName=?{
-        //      combineClassNames([Some(Styles.scrollContent), contentWrapperClassName])
-        //    }>
-        <Content className=?{css([contentClassName])}> children </Content>
-        //  </ScrollContainer>
+        <ScrollContainer
+          className=?{css([
+            Styles.scrollContainer,
+            animationContentClassName,
+            scrollContainerClassName,
+          ])}
+          contentClassName=?{css([Styles.scrollContent, contentWrapperClassName])}>
+          <Content className=?{contentClassName}> children </Content>
+        </ScrollContainer>
       </Wrapper>
     }}
   </InOutCSSTransition>

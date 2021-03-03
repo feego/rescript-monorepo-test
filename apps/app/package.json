@@ -9,6 +9,8 @@
     "@emotion/react": "^11.1.5",
     "@emotion/server": "^11.0.0",
     "@packages/react-modals": "*",
+    "@packages/react-scroll-container": "*",
+    "@packages/react-utils": "*",
     "@packages/rescript-bindings": "*",
     "@rescript/react": "^0.10.1",
     "bs-css-emotion": "^2.4.0",

@@ -1,14 +1,12 @@
 {
   "private": true,
-  "name": "@packages/react-modals",
+  "name": "@packages/react-scroll-container",
   "version": "0.0.0",
   "author": "Rui Monteiro <figo.monteiro@gmail.com>",
   "license": "Apache License 2.0",
   "dependencies": {
     "@emotion/css": "^11.1.3",
     "@emotion/react": "^11.1.5",
-    "@packages/react-transitions": "*",
-    "@packages/react-scroll-container": "*",
     "@packages/react-utils": "*",
     "@packages/rescript-bindings": "*",
     "@rescript/react": "^0.10.1",

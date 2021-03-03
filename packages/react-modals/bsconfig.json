@@ -10,11 +10,13 @@
     "bs-css-emotion",
     "bs-webapi",
     "@packages/react-transitions",
+    "@packages/react-scroll-container",
     "@packages/react-utils",
     "@packages/rescript-bindings"
   ],
   "pinned-dependencies": [
     "@packages/react-transitions",
+    "@packages/react-scroll-container",
     "@packages/react-utils",
     "@packages/rescript-bindings"
   ],

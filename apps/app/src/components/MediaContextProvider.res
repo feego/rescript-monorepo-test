@@ -1,6 +1,6 @@
 open React
 open PackagesRescriptBindings
-open DomAPI.Window
+open DomAPI
 
 module Breakpoint = {
   type t = Width(int)
@@ -41,11 +41,11 @@ let make = (~children, ~breakpoints: array<Breakpoint.t>) => {
       ->Belt.SortArray.stableSortBy(Breakpoint.compare)
       ->Belt.Array.map(breakpoint => (
         breakpoint,
-        Media.match(window, `(min-width: ${Breakpoint.toString(breakpoint)})`),
+        Window.Media.match(window, `(min-width: ${Breakpoint.toString(breakpoint)})`),
       ))
     )
   }, [breakpoints])
-  let handleWindowResize: Media.listener = useCallback1(() => {
+  let handleWindowResize: Window.Media.listener = useCallback1(() => {
     let _ = Belt.Array.map(matchMediaQueries, ((breakpoint, query)) => {
       if query.matches {
         setState(_state => {activeBreakpoint: breakpoint, isServerValue: false})
@@ -56,14 +56,14 @@ let make = (~children, ~breakpoints: array<Breakpoint.t>) => {
   if Environment.isBrowser {
     useLayoutEffect1(() => {
       let _ = Belt.Array.map(matchMediaQueries, ((_breakpoint, query)) =>
-        Media.addListener(query, handleWindowResize)
+        Window.Media.addListener(query, handleWindowResize)
       )
       handleWindowResize()
 
       Some(
         () => {
           let _ = Belt.Array.map(matchMediaQueries, ((_breakpoint, query)) =>
-            Media.removeListener(query, handleWindowResize)
+            Window.Media.removeListener(query, handleWindowResize)
           )
         },
       )

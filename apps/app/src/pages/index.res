@@ -3,9 +3,7 @@ open PackagesRescriptBindings
 module Styles = {
   open Emotion.Css
 
-  let wrapper = style([
-    backgroundColor(#hex("000000")),
-  ])
+  let wrapper = style([])
 }
 
 module P = {

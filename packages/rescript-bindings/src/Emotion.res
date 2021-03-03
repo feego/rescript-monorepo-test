@@ -13,7 +13,17 @@ let css: array<option<string>> => option<string> = baseStyles => {
 external renderStylesToString: string => string = "renderStylesToString"
 
 module Css = {
-  include Css
+  // Overload Css.Calc to add operations that do not use infix operators.
+  module Calc = {
+    include Css.Calc
+    let subtract = (a, b) => #calc((#sub, a, b))
+    let add = (a, b) => #calc((#add, a, b))
+  }
+  module MakeCss = (): (module type of Css with module Calc := Calc) => {
+    include Css
+  }
+  include MakeCss()
+
   let style: array<Css.rule> => option<string> = rules => Some(Css.style(List.fromArray(rules)))
 }
 

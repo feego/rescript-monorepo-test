@@ -7,22 +7,15 @@ module HandlerComparable = Belt.Id.MakeComparable({
   let cmp = (handlerA, handlerB) => handlerA === handlerB ? 0 : -1
 })
 
-module Context = {
-  type t = {
-    subscribe: handler => unit,
-    unsubscribe: handler => unit,
-  }
-  let context = createContext({subscribe: _handler => (), unsubscribe: _handler => ()})
-
-  module Provider = {
-    let provider = React.Context.provider(context)
-
-    @react.component
-    let make = (~value, ~children) => {
-      React.createElement(provider, {"value": value, "children": children})
-    }
-  }
+type globalClicksContext = {
+  subscribe: handler => unit,
+  unsubscribe: handler => unit,
 }
+
+module Context = PackagesReactUtils.Context.Make({
+  type context = globalClicksContext
+  let defaultValue: context = {subscribe: _handler => (), unsubscribe: _handler => ()}
+})
 
 @react.component
 let make = (~children, ~className=?) => {
@@ -39,7 +32,7 @@ let make = (~children, ~className=?) => {
   }, [subscriptionsHandlersRef])
 
   let contextAPI = useMemo2(
-    (): Context.t => {subscribe: subscribe, unsubscribe: unsubscribe},
+    (): globalClicksContext => {subscribe: subscribe, unsubscribe: unsubscribe},
     (subscribe, unsubscribe),
   )
 
